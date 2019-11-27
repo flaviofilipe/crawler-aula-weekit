@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<div role="main" class="container">
+
+    <h1>Central de noticias Python</h1>
+
+    <div class="content card">
+        <div class="card-body">
+            {% for noticia in noticias %}
+            <section>
+                <div class="row">
+                    <div class="col-md-3" style="max-width: 150px;">
+                        <img src="{{ url_for('static', filename=noticia.img) }}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-9">
+                        <a href="{{noticia.id}}">
+                            <p>{{noticia.titulo}}</p>
+                        </a>
+                        <small class="text-muted" id="author">autor: {{noticia.autor}}</small>
+                        <br>
+                        <small class="text-muted" id="data">data: {{noticia.data}}</small>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            {% endfor %}
+
+        </div>
+    </div>
+</div><!-- /.container -->
+
+{% endblock %}
